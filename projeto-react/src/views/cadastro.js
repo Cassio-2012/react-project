@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '../components/card'
 import FormGroup from '../components/form-group'
+import {withRouter} from 'react-router-dom'
 
 class Cadastro extends React.Component {
 
@@ -15,13 +16,20 @@ class Cadastro extends React.Component {
         console.log(this.state)
     }
 
+    toLogin = () => {
+        this.props.history.push('/login')
+    }
+ 
+
     render() {
         return(
-            <div className="container">
+            <div className="container-b">
+            
             <Card title="Cadastro">
-                <div className="row">
-                    <div className="col-lg-12">
+         
+                    
                        <div className="bs-component">
+                    
                             <FormGroup label="Nome: *" htmlFor="inputNome">
                                 <input type="text" id="inputNome"
                                 name="nome" className="form-control"
@@ -43,11 +51,13 @@ class Cadastro extends React.Component {
                                 onChange={e => this.setState({senha_repeat: e.target.value})}/>
                             </FormGroup>
                             <button type="button" onClick={this.cadastro} className="btn btn-success">Enviar</button>
-                            <button type="button" className="btn btn-danger">Cancelar</button>
+                            <button type="button" onClick={this.toLogin} className="btn btn-danger">Cancelar</button>
                    </div>
-                   </div>
-                </div>
+                   
+            
             </Card>
+            
+
         </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '../components/card.js'
 import Formgroup from '../components/form-group'
+import {whithRouter} from 'react-router-dom'
 
 class Login extends React.Component {
 
@@ -11,6 +12,12 @@ class Login extends React.Component {
         
     }
 
+    toCadastro = () => {
+
+        this.props.history.push('/cadastro')
+
+    }
+
 
     logar = () => {
         console.log('Email: ' , this.state.email)
@@ -19,12 +26,12 @@ class Login extends React.Component {
 
     render() {
         return (
-        <div className="container">
-            <div className="row">
-
-                <div className="col-md-6" style={{position : 'relative', left: '300px'}}>
+            
+                <div className="row">
+                 <div className="col-md-6" style={{position : 'relative', left: '25%'}}>
+                
                         <div className="bs-docs-section"> 
-
+                  <div className="container-b">                            
                             <Card title="Login">
 
                                 <div className="row">
@@ -51,7 +58,7 @@ class Login extends React.Component {
 
                                             </Formgroup> 
                                             <button onClick={this.logar} className="btn btn-success">Entrar</button>
-                                            <button className="btn btn-danger">Cadastrar</button>
+                                            <button onClick={this.toCadastro} className="btn btn-danger">Cadastrar</button>
                                             </fieldset>
 
                                         </div>
@@ -64,10 +71,11 @@ class Login extends React.Component {
 
                         </div>
                 </div>
+                </div>
 
             </div>
-
-        </div>
+           
+ 
         )
     };
         
